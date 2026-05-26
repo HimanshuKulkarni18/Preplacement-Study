@@ -1,0 +1,84 @@
+Last login: Tue May 26 14:18:41 on ttys009
+mohitkantilalkulkarni@192 ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 9.6.0 Homebrew
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASE;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DATABASE' at line 1
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| company_db         |
+| employee_db        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| students_db        |
+| sys                |
++--------------------+
+7 rows in set (0.002 sec)
+
+mysql> USE students_db;
+Database changed
+mysql> CREATE DATABASE students_db;
+ERROR 1007 (HY000): Can't create database 'students_db'; database exists
+mysql> USE students_db;
+Database changed
+mysql> 
+mysql> CREATE TABLE students (
+    ->   id INT AUTO_INCREMENT PRIMARY KEY,
+    ->   name VARCHAR(100) NOT NULL,
+    ->   age INT,
+    ->   grade VARCHAR(20),
+    ->   class_name VARCHAR(20),
+    ->   phone VARCHAR(15)
+    -> );
+Query OK, 0 rows affected (0.012 sec)
+
+mysql> 
+mysql> INSERT INTO students (name, age, grade, class_name, phone)
+    -> VALUES
+    -> ('Rahul Sharma', 14, '9th', 'A', '9876543210'),
+    -> ('Priya Patil', 15, '10th', 'B', '9123456780'),
+    -> ('Amit Kulkarni', 13, '8th', 'C', '9988776655');
+Query OK, 3 rows affected (0.003 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> SELECT * FROM students;
++----+---------------+------+-------+------------+------------+
+| id | name          | age  | grade | class_name | phone      |
++----+---------------+------+-------+------------+------------+
+|  1 | Rahul Sharma  |   14 | 9th   | A          | 9876543210 |
+|  2 | Priya Patil   |   15 | 10th  | B          | 9123456780 |
+|  3 | Amit Kulkarni |   13 | 8th   | C          | 9988776655 |
++----+---------------+------+-------+------------+------------+
+3 rows in set (0.000 sec)
+
+mysql> INSERT INTO students (name, age, grade, class_name, phone)
+    -> VALUES ('Aarav', 14, '9th', 'A', '9876543210');
+Query OK, 1 row affected (0.003 sec)
+
+mysql>  SELECT * FROM students;
++----+---------------+------+-------+------------+------------+
+| id | name          | age  | grade | class_name | phone      |
++----+---------------+------+-------+------------+------------+
+|  1 | Rahul Sharma  |   14 | 9th   | A          | 9876543210 |
+|  2 | Priya Patil   |   15 | 10th  | B          | 9123456780 |
+|  3 | Amit Kulkarni |   13 | 8th   | C          | 9988776655 |
+|  4 | Aarav         |   14 | 9th   | A          | 9876543210 |
++----+---------------+------+-------+------------+------------+
+4 rows in set (0.001 sec)
+
+mysql> 

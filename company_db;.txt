@@ -1,0 +1,53 @@
+Last login: Tue May 26 16:08:53 on ttys009
+mohitkantilalkulkarni@192 ~ % mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 23
+Server version: 9.6.0 Homebrew
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| company_db         |
+| employee_db        |
+| information_schema |
+| mysql              |
+| performance_schema |
+| students_db        |
+| sys                |
++--------------------+
+7 rows in set (0.002 sec)
+
+mysql> USE company_db;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> SHOW TABLES;
++----------------------+
+| Tables_in_company_db |
++----------------------+
+| employees            |
++----------------------+
+1 row in set (0.001 sec)
+
+mysql> SELECT *FROM employees;
++----+-------+------+------------+----------+
+| id | name  | age  | department | salary   |
++----+-------+------+------------+----------+
+|  1 | Rahul |   28 | IT         | 60000.00 |
+|  2 | Priya |   25 | HR         | 45000.00 |
+|  3 | Amit  |   22 | IT         | 40000.00 |
++----+-------+------+------------+----------+
+3 rows in set (0.000 sec)
+
+mysql> 
