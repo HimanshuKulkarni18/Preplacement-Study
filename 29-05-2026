@@ -1,0 +1,108 @@
+#1 Check whether a string is a palindrome
+
+s = ( "Enter the srting")
+rev = ""
+for ch is s :
+  rev = ch + rev
+    if s == rev :
+    print ( "Palindrome")
+    else:
+    print ( " Not Palindrom " )
+
+#2. Count words in a sentence
+
+s = input("Enter a sentence: ")
+count = 0
+in_word = False
+for ch in s:
+    if ch != " ":
+        if not in_word:
+            count += 1
+            in_word = True
+    else:
+        in_word = False
+print("Words =", count)
+
+#3 .Find the frequency of characters in a string
+
+s = input("Enter a string: ")
+freq = {}
+for ch in s:
+    freq[ch] = freq.get(ch, 0) + 1
+
+for ch, f in freq.items():
+    print(f"'{ch}':", f)
+
+#4  Remove spaces from a string
+
+s = input("Enter a string: ")
+result = ""
+for ch in s:
+    if ch != " ":
+        result += ch
+print("Without spaces:", result)
+
+#5  Convert lowercase to uppercase without using built-ins
+
+s = input("Enter a string: ")
+result = ""
+for ch in s:
+    if "a" <= ch <= "z":
+        # ASCII: 'a' = 97, 'A' = 65 → difference = 32
+        result += chr(ord(ch) - 32)
+    else:
+        result += ch
+print("Uppercase:", result)
+
+#6 Find the longest word in a sentence
+
+s = input("Enter a sentence: ")
+longest = ""
+current = ""
+for ch in s:
+    if ch != " ":
+        current += ch
+    else:
+        if len(current) > len(longest):
+            longest = current
+        current = ""
+# check last word
+if len(current) > len(longest):
+    longest = current
+
+print("Longest word:", longest)
+
+#7 Check if two strings are anagrams
+
+s1 = input("Enter first string: ")
+s2 = input("Enter second string: ")
+
+                                                                    # remove spaces and make same case manually
+def normalize(s):
+    s = s.lower()
+    s_no_space = ""
+    for ch in s:
+        if ch != " ":
+            s_no_space += ch
+    return s_no_space
+
+a = normalize(s1)
+b = normalize(s2)
+
+                                                              # sort manually by counting frequencies (simple approach using sorted)
+if sorted(a) == sorted(b):
+    print("Anagrams")
+else:
+    print("Not anagrams")
+
+#8 Replace vowels with *
+
+s = input("Enter a string: ")
+vowels = "aeiouAEIOU"
+result = ""
+for ch in s:
+    if ch in vowels:
+        result += "*"
+    else:
+        result += ch
+print("After replacement:", result)
