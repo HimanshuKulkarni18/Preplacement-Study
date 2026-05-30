@@ -1,0 +1,188 @@
+1. Find the largest element in a list
+
+lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
+
+largest = lst[0]
+for x in lst:
+    if x > largest:
+        largest = x
+print("Largest:", largest)
+
+
+2. Find the second largest number
+
+lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
+
+# Remove duplicates by converting to set, then back to list
+unique = list(set(lst))
+if len(unique) < 2:
+    print("No second largest (not enough distinct values).")
+else:
+    largest = second = float('-inf')
+    for x in unique:
+        if x > largest:
+            second = largest
+            largest = x
+        elif x > second:
+            second = x
+    print("Second largest:", second)
+3. Remove duplicates from a list
+
+
+lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
+
+result = []
+for x in lst:
+    if x not in result:
+        result.append(x)
+print("Without duplicates:", result)
+
+
+4. Sort a list without using sort() (bubble sort)
+python
+lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
+
+n = len(lst)
+for i in range(n):
+    for j in range(0, n - i - 1):
+        if lst[j] > lst[j + 1]:
+            lst[j], lst[j + 1] = lst[j + 1], lst[j]
+print("Sorted:", lst)
+
+
+5. Merge two lists
+
+list1 = [int(x) for x in input("Enter first list (space-separated): ").split()]
+list2 = [int(x) for x in input("Enter second list (space-separated): ").split()]
+
+merged = list1 + list2
+print("Merged list:", merged)
+
+
+6. Find common elements between two lists
+
+list1 = [int(x) for x in input("Enter first list (space-separated): ").split()]
+list2 = [int(x) for x in input("Enter second list (space-separated): ").split()]
+
+common = []
+for x in list1:
+    if x in list2 and x not in common:
+        common.append(x)
+print("Common elements:", common)
+
+
+7. Rotate a list by one position (left rotation)
+
+lst = [int(x) for x in input("Enter numbers separated by space: ").split()]
+
+if len(lst) > 1:
+    first = lst[0]
+    for i in range(len(lst) - 1):
+        lst[i] = lst[i + 1]
+    lst[-1] = first
+print("Rotated by one:", lst)
+(For right rotation, move the last element to the front instead.)
+
+##LLM Ai Question Answers
+
+1. What is Supervised Learning?
+
+Supervised learning is a machine learning approach where a model learns from labeled data.
+
+Example:
+
+Input	Output
+Email	Spam
+Email	Not Spam
+
+The model learns the relationship between input and output.
+
+2. What is Unsupervised Learning?
+
+Unsupervised learning works with unlabeled data and tries to discover patterns.
+
+Examples:
+
+Customer segmentation
+Grouping similar products
+Anomaly detection
+
+3. What is Reinforcement Learning?
+
+Reinforcement Learning (RL) is a learning method where an agent learns through rewards and penalties.
+
+Example:
+
+Game-playing AI
+Robotics
+Autonomous systems
+
+4. What is the Difference Between Training Data and Test Data?
+
+Training Data
+
+Used to teach the model.
+
+Test Data
+
+Used to evaluate model performance on unseen examples.
+
+
+5. What is a Neural Network?
+
+A neural network is a computational model inspired by the human brain.
+
+Components:
+
+Input Layer
+Hidden Layers
+Output Layer
+
+It learns patterns through weighted connections.
+
+6. What is an Epoch?
+
+An epoch is one complete pass through the entire training dataset.
+
+Example:
+
+Dataset: 10,000 records
+1 epoch = model sees all 10,000 records once
+
+
+7. What is Batch Size?
+
+Batch size is the number of training samples processed before updating model weights.
+
+Example:
+
+Dataset = 1,000 samples
+Batch size = 100
+10 batches per epoch
+
+8. What is Loss Function?
+
+A loss function measures how wrong a model's prediction is.
+
+Lower loss = better performance.
+
+Common examples:
+
+Mean Squared Error (MSE)
+Cross-Entropy Loss
+
+
+9. What is Gradient Descent?
+
+Gradient Descent is an optimization algorithm used to minimize loss and improve model accuracy.
+
+It updates model parameters step by step.
+
+10. What is an API?
+
+API (Application Programming Interface) allows applications to communicate with each other.
+
+Example:
+
+Your application sends a prompt.
+AI model returns a response.
