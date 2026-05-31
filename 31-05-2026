@@ -1,0 +1,107 @@
+1. Function to check prime numbers
+
+def is_prime(n: int) -> bool:
+    if n < 2:
+        return False
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# Example
+# print(is_prime(17))  # True
+
+2. Calculator using functions
+
+def add(a, b): return a + b
+def sub(a, b): return a - b
+def mul(a, b): return a * b
+def div(a, b):
+    if b == 0:
+        return "Error: Division by zero"
+    return a / b
+
+def calculator():
+    print("Calculator:")
+    print("1. Add  2. Subtract  3. Multiply  4. Divide")
+    ch = input("Choice (1-4): ")
+    a = float(input("Enter first number: "))
+    b = float(input("Enter second number: "))
+
+    if ch == '1':
+        print("Result:", add(a, b))
+    elif ch == '2':
+        print("Result:", sub(a, b))
+    elif ch == '3':
+        print("Result:", mul(a, b))
+    elif ch == '4':
+        print("Result:", div(a, b))
+    else:
+        print("Invalid choice")
+
+3. Recursive factorial function
+
+def factorial_rec(n: int) -> int:
+    if n < 0:
+        raise ValueError("Factorial not defined for negative numbers")
+    if n == 0 or n == 1:
+        return 1
+    return n * factorial_rec(n - 1)
+
+# Example
+# print(factorial_rec(5))  # 120
+
+4. Recursive Fibonacci function
+
+def fib_rec(n: int) -> int:
+    if n < 0:
+        raise ValueError("n must be non-negative")
+    if n == 0:
+        return 0
+    if n == 1:
+        return 1
+    return fib_rec(n - 1) + fib_rec(n - 2)
+
+# Print first n terms
+def print_fib(n: int):
+    for i in range(n):
+        print(fib_rec(i), end=" ")
+    print()
+
+5. GCD of two numbers using a function
+
+def gcd(a: int, b: int) -> int:
+    a, b = abs(a), abs(b)
+    while b != 0:
+        a, b = b, a % b
+    return a
+
+# Example
+# print(gcd(48, 18))  # 6
+
+
+6. LCM of two numbers
+
+def lcm(a: int, b: int) -> int:
+    from math import gcd  # or use your own gcd function above
+    return abs(a * b) // gcd(a, b)
+
+# Example
+# print(lcm(4, 6))  # 12
+
+
+7. Function to count vowels in a string
+
+def count_vowels(s: str) -> int:
+    vowels = "aeiouAEIOU"
+    count = 0
+    for ch in s:
+        if ch in vowels:
+            count += 1
+    return count
+
+# Example
+# print(count_vowels("Hello World"))  # 3
+
+
+    
