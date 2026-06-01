@@ -1,0 +1,196 @@
+##LLM AI Q/A
+##DATABASE Q/A
+1. What is an API?
+
+API (Application Programming Interface) allows applications to communicate with each other.
+
+Example:
+
+Your application sends a prompt.
+AI model returns a response.
+
+2. What is an AI Model?
+
+An AI model is a trained system that can make predictions or generate outputs based on input data.
+
+Examples:
+
+Image classification model
+Language model
+Recommendation model
+
+3. What is Pretraining?
+
+Pretraining is the initial training phase where an LLM learns general language patterns from massive datasets.
+
+After pretraining, models can be adapted to specific tasks.
+
+4. What is Inference?
+
+Inference is the process of using a trained model to generate predictions or responses.
+
+Example:
+
+User asks a question.
+Model generates an answer.
+
+This is inference.
+
+5. What is Latency in AI?
+
+Latency is the time taken for a model to produce a response.
+
+Lower latency = faster responses.
+
+6. What is Quantization?
+
+Quantization reduces model size by storing weights with lower precision.
+
+Benefits:
+
+Faster inference
+Lower memory usage
+Easier deployment
+
+7. What is a Foundation Model?
+
+A foundation model is a large pretrained model that can be adapted to many tasks.
+
+Examples:
+
+GPT
+Gemini
+Llama
+
+8. What is Tokenization?
+
+Tokenization is the process of breaking text into smaller units called tokens.
+
+Example:
+
+Sentence:
+
+I love AI
+
+Tokens:
+
+["I", "love", "AI"]
+
+9. What is Prompt Chaining?
+
+Prompt chaining involves connecting multiple prompts where the output of one prompt becomes the input for another.
+
+Example:
+
+Summarize article
+Extract key points
+Create presentation slides
+44. What is Context in LLMs?
+
+Context is the information provided to the model before it generates a response.
+
+Better context usually leads to better answers.
+
+10. What is a System Prompt?
+
+A system prompt defines the model's behavior and instructions.
+
+Example:
+
+You are a helpful coding assistant.
+
+The model follows this guidance throughout the conversation.
+
+
+
+
+
+#DB
+
+1. What is denormalization?
+
+Denormalization is the process of combining tables to improve query performance.
+
+2. What is a JOIN?
+
+A JOIN combines rows from two or more tables based on a related column.
+
+Types of JOINs:
+
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN
+
+Example:
+
+SELECT Students.Name, Orders.OrderID
+FROM Students
+INNER JOIN Orders
+ON Students.StudentID = Orders.StudentID;
+
+
+3. What is the difference between DELETE, DROP, and TRUNCATE?
+DELETE	DROP	TRUNCATE
+Removes rows	Removes table	Removes all rows
+Can rollback	Cannot rollback	Cannot rollback in many DBs
+WHERE clause allowed	No WHERE clause	No WHERE clause
+
+
+4. What is an index?
+
+An index improves the speed of data retrieval operations.
+
+Example:
+
+CREATE INDEX idx_name
+ON Students(Name);
+
+
+5. What is a view?
+
+A view is a virtual table created from a SQL query.
+
+Example:
+
+CREATE VIEW StudentView AS
+SELECT Name FROM Students;
+
+
+6. What is a stored procedure?
+
+A stored procedure is a precompiled set of SQL statements stored in the database.
+
+
+7. What is a trigger?
+
+A trigger is a procedure that automatically executes in response to database events.
+
+
+8. What is ACID property?
+
+ACID properties ensure reliable database transactions.
+
+Property	Meaning
+Atomicity	All or nothing
+Consistency	Valid data only
+Isolation	Transactions are independent
+Durability	Data persists permanently
+
+9. What is a transaction?
+
+A transaction is a sequence of database operations treated as a single unit.
+
+Example:
+
+BEGIN TRANSACTION;
+UPDATE Accounts SET Balance = Balance - 100 WHERE ID = 1;
+UPDATE Accounts SET Balance = Balance + 100 WHERE ID = 2;
+COMMIT;
+
+
+10. What is the difference between WHERE and HAVING?
+WHERE	HAVING
+Filters rows	Filters groups
+Used before GROUP BY	Used after GROUP BY
+
