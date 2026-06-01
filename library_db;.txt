@@ -1,0 +1,347 @@
+Last login: Mon Jun  1 12:19:08 on ttys000
+mohitkantilalkulkarni@Mohits-MacBook-Air ~ % Mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 10
+Server version: 9.6.0 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> CREATE DATABASE library_db;
+Query OK, 1 row affected (0.004 sec)
+
+mysql> USE library_db;
+Database changed
+mysql> CREATE TABLE Authors(
+    -> author_id INT AUTO_INCREMENT PRIMARY KEY ,
+    -> author name VARCHAR (100) N0T NULL
+    -> country VARCHAR (50)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name VARCHAR (100) N0T NULL
+country VARCHAR (50)
+)' at line 3
+mysql> CREATE TABLE Authors( author_id INT AUTO_INCREMENT PRIMARY KEY , author name VARCHAR(100) N0T NULL country VARCHAR(50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name VARCHAR(100) N0T NULL country VARCHAR(50) )' at line 1
+mysql> CREATE TABLE Authors( author_id INT AUTO_INCREMENT PRIMARY KEY , author_name VARCHAR (100) N0T NULL country VARCHAR (50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N0T NULL country VARCHAR (50) )' at line 1
+mysql> CREATE TABLE Authors( author_id INT AUTO_INCREMENT PRIMARY KEY , author name VARCHAR(100) N0T NULL, country VARCHAR(50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name VARCHAR(100) N0T NULL, country VARCHAR(50) )' at line 1
+mysql> CREATE TABLE Authors( author_id INT AUTO_INCREMENT PRIMARY KEY , author name VARCHAR(100) N0T NULL, country VARCHAR(50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name VARCHAR(100) N0T NULL, country VARCHAR(50) )' at line 1
+mysql>  R
+mysql> CREATE TABLES Categories (
+    -> category_id INT AUTO_INCREMENT PRIMARY KEY ,
+    -> category_name VARCHAR(50) N0T NULL UNIQUE
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'TABLES Categories (
+category_id INT AUTO_INCREMENT PRIMARY KEY ,
+category_name V' at line 1
+mysql> CREATE TABLE Categories ( category_id INT AUTO_INCREMENT PRIMARY KEY , category_name VARCHAR(50) N0T NULL UNIQUE );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N0T NULL UNIQUE )' at line 1
+mysql> CREATE TABLE Categories ( category_id INT AUTO_INCREMENT PRIMARY KEY , category_name VARCHAR(50) NOT NULL UNIQUE );
+Query OK, 0 rows affected (0.014 sec)
+
+mysql> INSERT INTO Authors (author_name , country)
+    -> VALUES
+    -> ('H.K.Kulkarni','India'),
+    -> ('M.C.Joshi','India');
+ERROR 1146 (42S02): Table 'library_db.authors' doesn't exist
+mysql> INSERT INTO author_name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1146 (42S02): Table 'library_db.author_name' doesn't exist
+mysql> INSERT INTO author name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','Indi' at line 1
+mysql> INSERT INTO author name (author name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'name (author name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','Indi' at line 1
+mysql> INSERT INTO author_name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1146 (42S02): Table 'library_db.author_name' doesn't exist
+mysql> author_name VARCHAR (100) N0T NULL
+    -> INSERT INTO author_name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'author_name VARCHAR (100) N0T NULL
+INSERT INTO author_name (author_name , countr' at line 1
+mysql> author_name VARCHAR (100) NOT NULL INSERT INTO author_name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'author_name VARCHAR (100) NOT NULL INSERT INTO author_name (author_name , countr' at line 1
+mysql> author_name VARCHAR (100) N0T NULL INSERT INTO author_name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'author_name VARCHAR (100) N0T NULL INSERT INTO author_name (author_name , countr' at line 1
+mysql> author_name VARCHAR (100) N0T NULL INSERT INTO author_name (author_name , country) VALUES ('H.K.Kulkarni','India'), ('M.C.Joshi','India');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'author_name VARCHAR (100) N0T NULL INSERT INTO author_name (author_name , countr' at line 1
+mysql> CREATE TABLE Authors( author_id INT AUTO_INCREMENT PRIMARY KEY , author_name VARCHAR(100) N0T NULL, country VARCHAR(50) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'N0T NULL, country VARCHAR(50) )' at line 1
+mysql> CREATE TABLE Authors( author_id INT AUTO_INCREMENT PRIMARY KEY , author_name VARCHAR(100) NOT NULL, country VARCHAR(50) );
+Query OK, 0 rows affected (0.009 sec)
+
+mysql> INSERT INTO Categories (category_name)
+    -> VALUES
+    -> ('Fantasy'),
+    -> ('Fiction');
+Query OK, 2 rows affected (0.011 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> INSERT INTO Books
+    -> (title, author_id, category_id, isbn, published_year, available_copies)
+    -> VALUES
+    -> ('Harry Potter and the Philosopher''s Stone', 1, 1, '9780747532699', 1997, 10),
+    -> ('1984', 2, 2, '9780451524935', 1949, 5);
+ERROR 1146 (42S02): Table 'library_db.books' doesn't exist
+mysql> 
+mysql> INSERT INTO Members (full_name, email, phone)
+    -> VALUES
+    -> ('Rahul Sharma', 'rahul@gmail.com', '9876543210'),
+    -> ('Priya Patel', 'priya@gmail.com', '9876543211');
+ERROR 1146 (42S02): Table 'library_db.members' doesn't exist
+mysql> 
+mysql> INSERT INTO Book_Loans
+    -> (book_id, member_id, issue_date)
+    -> VALUES
+    -> (1, 1, CURDATE());
+ERROR 1146 (42S02): Table 'library_db.book_loans' doesn't exist
+mysql> INSERT INTO book_Loans (book_id, member_id, issue_date) VALUES (1, 1, CURDATE());
+ERROR 1146 (42S02): Table 'library_db.book_loans' doesn't exist
+mysql> -- Books Table
+Query OK, 0 rows affected (0.000 sec)
+
+mysql> CREATE TABLE Books (
+    ->     book_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     title VARCHAR(200) NOT NULL,
+    ->     author_id INT NOT NULL,
+    ->     category_id INT NOT NULL,
+    ->     isbn VARCHAR(20) UNIQUE,
+    ->     published_year YEAR,
+    ->     available_copies INT DEFAULT 0,
+    ->     FOREIGN KEY (author_id) REFERENCES Authors(author_id),
+    ->     FOREIGN KEY (category_id) REFERENCES Categories(category_id)
+    -> );
+Query OK, 0 rows affected (0.016 sec)
+
+mysql> 
+mysql> -- Members Table
+Query OK, 0 rows affected (0.000 sec)
+
+mysql> CREATE TABLE Members (
+    ->     member_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     full_name VARCHAR(100) NOT NULL,
+    ->     email VARCHAR(100) UNIQUE,
+    ->     phone VARCHAR(15),
+    ->     join_date DATE DEFAULT (CURRENT_DATE)
+    -> );
+Query OK, 0 rows affected (0.006 sec)
+
+mysql> 
+mysql> -- Book Loans Table
+Query OK, 0 rows affected (0.000 sec)
+
+mysql> CREATE TABLE Book_Loans (
+    ->     loan_id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     book_id INT NOT NULL,
+    ->     member_id INT NOT NULL,
+    ->     issue_date DATE NOT NULL,
+    ->     return_date DATE,
+    ->     status ENUM('Issued', 'Returned') DEFAULT 'Issued',
+    ->     FOREIGN KEY (book_id) REFERENCES Books(book_id),
+    ->     FOREIGN KEY (member_id) REFERENCES Members(member_id)
+    -> );
+Query OK, 0 rows affected (0.014 sec)
+
+mysql> -- List all books with author and category
+Query OK, 0 rows affected (0.000 sec)
+
+mysql> SELECT b.title,
+    ->        a.author_name,
+    ->        c.category_name
+    -> FROM Books b
+    -> JOIN Authors a ON b.author_id = a.author_id
+    -> JOIN Categories c ON b.category_id = c.category_id;
+Empty set (0.002 sec)
+
+mysql> 
+mysql> -- Find currently issued books
+Query OK, 0 rows affected (0.000 sec)
+
+mysql> SELECT *
+    -> FROM Book_Loans
+    -> WHERE status = 'Issued';
+Empty set (0.002 sec)
+
+mysql> 
+mysql> -- Count books by category
+Query OK, 0 rows affected (0.000 sec)
+
+mysql> SELECT c.category_name,
+    ->        COUNT(*) AS total_books
+    -> FROM Books b
+    -> JOIN Categories c ON b.category_id = c.category_id
+    -> GROUP BY c.category_name;
+Empty set (0.001 sec)
+
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| library_db         |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.002 sec)
+
+mysql> USE library_db;
+Database changed
+mysql> SELECT library_db;
+ERROR 1054 (42S22): Unknown column 'library_db' in 'field list'
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| library_db         |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.001 sec)
+
+mysql> SELECT library_db;
+ERROR 1054 (42S22): Unknown column 'library_db' in 'field list'
+mysql> SELECT library_db;
+ERROR 1054 (42S22): Unknown column 'library_db' in 'field list'
+mysql> SHOW DATABASES;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| library_db         |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.001 sec)
+
+mysql> SHOW TABLES;
++----------------------+
+| Tables_in_library_db |
++----------------------+
+| Authors              |
+| Book_Loans           |
+| Books                |
+| Categories           |
+| Members              |
++----------------------+
+5 rows in set (0.002 sec)
+
+mysql> SELECT *FROM Authors
+    -> SELECT *FROM Book_Loans
+    -> SELECT *FROM Books
+    -> SELECT *FROM Categories
+    -> SELECT *FROM Members
+    -> SELECT *FROM Authors;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT *FROM Book_Loans
+SELECT *FROM Books
+SELECT *FROM Categories
+SELECT *FROM ' at line 2
+mysql>  SELECT *FROM Authors;
+Empty set (0.000 sec)
+
+mysql> SELECT *FROM Members;
+Empty set (0.002 sec)
+
+mysql> SELECT *FROM Categories;
++-------------+---------------+
+| category_id | category_name |
++-------------+---------------+
+|           1 | Fantasy       |
+|           2 | Fiction       |
++-------------+---------------+
+2 rows in set (0.000 sec)
+
+mysql> SELECT *FROM Books;
+Empty set (0.000 sec)
+
+mysql> SELECT *FROM Book_Loans;
+Empty set (0.000 sec)
+
+mysql> SELECT *FROM Authors;
+Empty set (0.000 sec)
+
+mysql> INSERT INTO Authors (author_name, country)
+    -> VALUES
+    -> ('J.K. Rowling', 'United Kingdom'),
+    -> ('George Orwell', 'United Kingdom');
+Query OK, 2 rows affected (0.001 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> INSERT INTO Categories (category_name)
+    -> VALUES
+    -> ('Fantasy'),
+    -> ('Fiction');
+ERROR 1062 (23000): Duplicate entry 'Fantasy' for key 'categories.category_name'
+mysql> 
+mysql> INSERT INTO Books
+    -> (title, author_id, category_id, isbn, published_year, available_copies)
+    -> VALUES
+    -> ('Harry Potter and the Philosopher''s Stone', 1, 1, '9780747532699', 1997, 10),
+    -> ('1984', 2, 2, '9780451524935', 1949, 5);
+Query OK, 2 rows affected (0.003 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> INSERT INTO Members (full_name, email, phone)
+    -> VALUES
+    -> ('Rahul Sharma', 'rahul@gmail.com', '9876543210'),
+    -> ('Priya Patel', 'priya@gmail.com', '9876543211');
+Query OK, 2 rows affected (0.001 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> 
+mysql> INSERT INTO Book_Loans
+    -> (book_id, member_id, issue_date)
+    -> VALUES
+    -> (1, 1, CURDATE());
+Query OK, 1 row affected (0.002 sec)
+
+mysql> SELECT *FROM Authors;
++-----------+---------------+----------------+
+| author_id | author_name   | country        |
++-----------+---------------+----------------+
+|         1 | J.K. Rowling  | United Kingdom |
+|         2 | George Orwell | United Kingdom |
++-----------+---------------+----------------+
+2 rows in set (0.000 sec)
+
+mysql> SELECT *FROM Categories;
++-------------+---------------+
+| category_id | category_name |
++-------------+---------------+
+|           1 | Fantasy       |
+|           2 | Fiction       |
++-------------+---------------+
+2 rows in set (0.000 sec)
+
+mysql> SELECT *FROM Members;
++-----------+--------------+-----------------+------------+------------+
+| member_id | full_name    | email           | phone      | join_date  |
++-----------+--------------+-----------------+------------+------------+
+|         1 | Rahul Sharma | rahul@gmail.com | 9876543210 | 2026-06-01 |
+|         2 | Priya Patel  | priya@gmail.com | 9876543211 | 2026-06-01 |
++-----------+--------------+-----------------+------------+------------+
+2 rows in set (0.000 sec)
+
+mysql> mysql> SELECT *FROM Book_Loans;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM *FSELECT *FROM Book_Loans' at line 1
+mysql> SELECT *FROM Books;
++---------+------------------------------------------+-----------+-------------+---------------+----------------+------------------+
+| book_id | title                                    | author_id | category_id | isbn          | published_year | available_copies |
++---------+------------------------------------------+-----------+-------------+---------------+----------------+------------------+
+|       1 | Harry Potter and the Philosopher's Stone |         1 |           1 | 9780747532699 |           1997 |               10 |
+|       2 | 1984                                     |         2 |           2 | 9780451524935 |           1949 |                5 |
++---------+------------------------------------------+-----------+-------------+---------------+----------------+------------------+
+2 rows in set (0.001 sec)
+
+mysql> 
