@@ -1,0 +1,6 @@
+2025-07-01 10:15:23 INFO Application started
+2025-07-01 10:15:24 DEBUG Loading configuration
+2025-07-01 10:15:25 WARNING Disk usage is high
+2025-07-01 10:15:26 ERROR Database connection failed
+2025-07-01 10:15:27 ERROR Database connection failed
+2025-07-01 10:15:28 CRITICAL Application crashed
